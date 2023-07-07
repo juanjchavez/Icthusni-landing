@@ -1,0 +1,28 @@
+body{
+    background-color: #EEE3D5;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+
+header img{
+    max-width: 100%;
+    width: 700px;
+}
+
+.wrapper{
+    margin: 0 auto;
+    width: 1200px;
+}
+
+.elfsight-app-7f59ca45-7f4b-496a-9e2b-95572c67a749 > a{
+    max-height: 0!important;
+    overflow: hidden!important;
+    width: 0!important;
+    background: transparent!important;
+}
+
+.eapps-instagram-feed-header.es-header{
+    background-color: transparent;
+}
