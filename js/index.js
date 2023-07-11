@@ -14,12 +14,10 @@ const loadReel = () => {
     instgrm.Embeds.process(container, {
         url: reelUrl,
     });
-    console.log(instgrm);
 }
 
 const triggerBank = () => {
     const flipCard = document.querySelectorAll('.bank-card');
-    console.log(flipCard);
     flipCard.forEach(el => {
         el.addEventListener('mouseover', function() {
             el.classList.toggle('triggered');
