@@ -1,4 +1,5 @@
 window.addEventListener('load', function() {
+    triggerBank();
     loadReel();
 });
 
@@ -14,4 +15,17 @@ const loadReel = () => {
         url: reelUrl,
     });
     console.log(instgrm);
+}
+
+const triggerBank = () => {
+    const flipCard = document.querySelectorAll('.bank-card');
+    console.log(flipCard);
+    flipCard.forEach(el => {
+        el.addEventListener('mouseover', function() {
+            el.classList.toggle('triggered');
+        });
+        el.addEventListener('mouseout', function() {
+            el.classList.toggle('triggered');
+        });
+    }) 
 }

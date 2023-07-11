@@ -51,6 +51,7 @@ header img{
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-evenly;
     padding: 40px 5%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);    
 }
 .container-what .inner-content .counter-container{
     text-align: center;
@@ -67,20 +68,74 @@ header img{
     line-height: 28px;
 }
 
-.container-what h2{
+.container-what h2,
+.container-contact h2{
     color: white;
     margin-top: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.container-what h2::after{
+.container-what h2::after,
+.container-contact h2::after{
     background-color: #fff;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.container-what img{
+.decoration img{
     max-width: 100%;
     object-fit: contain;
+}
+
+.container-how .steps-wrapper{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    text-align: center;
+}
+.container-how .steps-wrapper .single-step{
+    align-items: center;
+    background-color: #f4f5f6;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    display: flex;
+    flex: 20% 0 0;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-evenly;
+    padding: 50px 30px;
+    position: relative;
+}
+
+.container-how .steps-wrapper .single-step:first-child{
+    border-radius: 10px 0 0 20px;
+}
+
+.container-how .steps-wrapper .single-step:last-child{
+    border-radius: 0 20px 20px 0;
+}
+
+.container-how .steps-wrapper .single-step .icon{
+    align-items: center;
+    background-color: #4EB1DF;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    font-size: 30px;
+    height: 60px;
+    justify-content: center;
+    width: 60px;
+}
+
+.container-how .steps-wrapper .single-step .step-title{
+    font-size: 30px;
+}
+.container-how .steps-wrapper .single-step .step-description{
+    font-size: 18px;
+}
+
+.container-how .steps-wrapper .single-step.even-step{
+    background-color: #0F4F9B;
+    color: white;
 }
 
 .content{
@@ -106,6 +161,10 @@ header img{
 
 .eapps-instagram-feed-header.es-header{
     background-color: transparent;
+}
+.eapps-instagram-feed-posts-grid-load-more-text,
+.eapps-instagram-feed-header-follow-button{
+    background-color: #0F4F9B!important;
 }
 
 .icthus-description{
@@ -136,10 +195,14 @@ header img{
     width: 90%;
 }
 
-.video-container::before{
+.video-container::before,
+.video-container::after{
     animation: moveAround 10s infinite linear;
     aspect-ratio: 1/1;
-    background-color: #f49220;
+    background-image: url('../img/forma-naranja.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     border-radius: 20px;
     content: '';
     height: auto;
@@ -147,8 +210,14 @@ header img{
     transform: translate(-50%, -50%);
     left: 50%;
     top: 0;    
-    width: 20%;
+    width: 10%;
     z-index: -1;
+}
+
+.video-container::after{
+    animation-direction: reverse;
+    /*animation-fill-mode: forwards;*/
+    background-image: url('../img/forma-azul.png');
 }
 
 .wrapper{
@@ -157,31 +226,107 @@ header img{
     max-width: 100%;
 }
 
+
 @keyframes moveAround{
 
     0% {
-        left: 30%
+        left: 40%
         top: 0;
         transform: rotate(0deg) rotate(90deg);
     }
     25% {
-        left: 80%;
-        top: 30%;
+        left: 90%;
+        top: 40%;
         transform: rotate(90deg)  rotate(180deg);
     }
     50% {
-        left: 30%; 
-        top: 70%;
+        left: 40%; 
+        top: 80%;
         transform: rotate(90deg)  rotate(270deg);
     }
     75% {
         left: 0; 
-        top: 30%;
+        top: 40%;
         transform: rotate(270deg)  rotate(0deg);
     }
     100% {
-        left: 30%
+        left: 40%
         top: 0;
         transform: rotate(-180deg)  rotate(270deg);
     }
+}
+
+.bank-card-wrapper{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin: 40px 0;
+    text-align: center;
+}
+.bank-card-wrapper .bank-card-title{
+    font-size: 28px;  
+    z-index: 1;
+}
+.bank-card-wrapper .bank-card-content{
+    font-size: 18px;
+    z-index: 1;
+}
+
+.bank-card-wrapper .bank-card{
+    align-items: center;
+    background-color: #f4f5f6;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 6px  rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-basis: calc(33.3% - 40px);
+    flex-direction: column;
+    gap: 30px;
+    height: 300px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 20px 10px;
+    position: relative;
+    transition: all 1s ease;
+}
+
+.bank-card-wrapper .bank-card::before{
+    content: '';
+    background-color: #f49220;
+    height: 5px;
+    position: absolute;
+    top: 0;
+    transition: all 0.75s ease;
+    width: 100%;
+    z-index: 0;
+}
+.bank-card-wrapper .bank-card.triggered{
+    color: white;
+    transition: all 1s ease;
+}
+
+.bank-card-wrapper .bank-card.triggered::before{
+    height: 100%;
+}
+
+.container-where span{
+    font-size: 18px;
+}
+
+a{
+    color:#f49220;
+    text-decoration: none;
+}
+.container-contact{
+    background-color: #0F4F9B;
+}
+.container-contact .copyright{
+    border-top: solid 1px rgba(200, 200, 200, 0.5);
+    color: #fff;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 15px 0;
+    text-align: center;
 }
