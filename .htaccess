@@ -1,0 +1,11 @@
+<IfModule mod_headers.c>
+    # Set cache expiration for CSS, images, and JS files to one year
+    <FilesMatch "\.(css|png|jpg|jpeg|js)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+
+    # Set cache expiration for HTML files to a few minutes
+    <FilesMatch "\.html$">
+        Header set Cache-Control "public, max-age=300, must-revalidate"
+    </FilesMatch>
+</IfModule>
